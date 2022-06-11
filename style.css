@@ -1,0 +1,23 @@
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.img{
+    width: 20px;
+    height: 20px;
+}
+.contaner{
+    display: flex;
+    flex-direction: row;
+}
+.folder,.file{
+    margin-left: 10px;
+}
+.folder-class,.file-class{
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    margin: 9px 0px 9px 11px;
+}
