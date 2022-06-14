@@ -1,23 +1,54 @@
-
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-.img{
+
+.main-contaner {
+    margin-top: 25px;
+}
+
+.img {
     width: 20px;
     height: 20px;
 }
-.contaner{
+
+.del-btn {
+    margin-left: 50px;
+}
+
+.contaner {
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 }
-.folder,.file{
+
+.folder,
+.file {
     margin-left: 10px;
 }
-.folder-class,.file-class{
+
+.add-new {
+    display: flex;
+    flex-direction: row;
+
+}
+
+/* .new-file{
+    margin-left: 128px;
+} */
+.folder-class,
+.file-class {
     cursor: pointer;
     width: fit-content;
     display: flex;
     margin: 9px 0px 9px 11px;
+}
+
+@media only screen and (min-width: 1000px) {
+    .add-new{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }

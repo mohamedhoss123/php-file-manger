@@ -11,15 +11,18 @@
 
 <body>
     <div class="add-new">
-        <!-- <div class="new-file">
-            <p>add new file</p>
-            <input type="file" id="file-inp">
-            <button id="tee">add</button>
-        </div> -->
         <div class="new-folder">
-            <input type="text" id="inp">
-            <button id="new-folder">add new folder</button>
-            <button id="back">back</button>
+            <input type="text" id="inp" name="folderName">
+            <button id="new-folder" type="submit">add new folder</button>
+        </div>
+        <div >
+            <p>add new file</p>
+            <input type="file" name ="file"id="file">
+            <button id="add-file-button" type="submit">add</button>
         </div>
     </div>
     <hr>
+<?php
+$myId = @$_GET["id"];
+
+?>
