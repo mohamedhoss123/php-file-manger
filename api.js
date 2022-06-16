@@ -67,9 +67,14 @@ async function upload() {
     var formdata = new FormData();
     formdata.append("file", file);
     formdata.append("parent", theID)
-    await fetch("./upload.php", {
-        method: "POST",
-        body: formdata
-    }).then(res => res.text()).then(res => console.log(res))
-    location.reload()
+    var ajax_request = new XMLHttpRequest()
+    ajax_request.open("POST","./upload.php")
+    ajax_request.upload.addEventListener("progress",function(event){
+        var presetnt_copleted = Math.round((event.loaded/event.total)*100)
+        document.getElementById("progress").innerText = presetnt_copleted + "%"
+    })
+    ajax_request.addEventListener("load",function(event){
+        location.reload()
+    })
+    ajax_request.send(formdata)
 }

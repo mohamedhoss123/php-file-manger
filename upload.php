@@ -16,7 +16,7 @@ if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         $conn->close();
-}
+    }
 else{
     echo "error";
 }

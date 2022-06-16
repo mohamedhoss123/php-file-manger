@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($conn->query($sql) === TRUE) {
             $arr = array("type" => "folder", "status" => "create", "id" => $randId, "name" => $_POST["folder-name"]);
             echo json_encode($arr);
-        } else {
+        }else{
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         $conn->close();
@@ -24,9 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         $sql = "DELETE FROM `folder` WHERE `folder`.`id` = " . $_POST['folder-id'] . ";";
         if ($conn->query($sql) === TRUE) {
+            // if folder deleted succefuly from the database this code will exucte 
+            // this code will see if file not found file will remove from the files folder  
+            // from the local directory
             $conn2 = mysqli_connect("localhost", "root", "", "file_manger");
-            $result2 = mysqli_query($conn2, "SELECT path FROM file");
-            $file2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+            $slctFromDbPath = mysqli_query($conn2, "SELECT path FROM file");
+            $file2 = mysqli_fetch_all($slctFromDbPath, MYSQLI_ASSOC);
             $file4 = array();
             foreach($file2 as $row){
                 array_push($file4,$row['path']);
